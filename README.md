@@ -6,18 +6,21 @@ This project documents a hands-on AWS cloud security and forensic investigation 
 
 The lab explored how AWS native security services can be used to provide visibility into API activity, monitor data access, identify potentially suspicious behavior and support forensic investigations.
 
-## Lab Architecture
+Lab Architecture
 
-```mermaid
-flowchart LR
-    IAM["AWS IAM<br/>Identity & Access"] --> S3["Amazon S3<br/>Data Access"]
-    IAM --> CT["AWS CloudTrail<br/>Logging & Evidence"]
-    S3 --> CT
-    CT --> EB["Amazon EventBridge<br/>Security Detection"]
-    CT --> INV["Forensic Investigation<br/>Event Analysis"]
-    EB --> CW["CloudWatch<br/>Monitoring & Alerting"]
-    INV --> RESP["Security Response<br/>Access Review & Restriction"]
-    IAM --> INV
+AWS IAM
+↓
+Amazon S3 — Data Access
+↓
+AWS CloudTrail — Logging & Evidence
+
+From CloudTrail:
+
+→ Amazon EventBridge — Security Detection
+→ CloudWatch — Monitoring & Alerting
+→ Forensic Investigation — Event Analysis
+↓
+Security Response & Access Review
 
 Objectives
 
